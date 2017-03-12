@@ -5,8 +5,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    login_user User.find_or_create_by(email: auth_hash.info.email) if auth_hash.present?
-    redirect_to root_url
+    interactor = Users::FindOrCreateFromSlack.call(auth_hash)
+    login_user interactor.user if interactor.success?
+    redirect_to root_url, flash: { success: "Successfully logged in." }
   end
 
   def destroy
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
   protected
 
   def auth_hash
-    request.env['omniauth.auth']
+    { auth_hash: request.env['omniauth.auth'] }
   end
 
   def check_not_already_logged_in

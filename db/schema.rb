@@ -16,11 +16,12 @@ ActiveRecord::Schema.define(version: 20170306015401) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.string   "full_name"
-    t.string   "email"
-    t.jsonb    "slack_data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "team_id"
+    t.string   "user_id"
+    t.string   "team_name"
+    t.jsonb    "webhook_data"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end

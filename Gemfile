@@ -39,6 +39,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth'
 gem 'omniauth-slack', :git => 'https://github.com/ginjo/omniauth-slack.git', :branch => 'auth-hash-fixes'
 
+gem 'interactor-rails', '~> 2.0'
+
+gem "slack-notifier"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
