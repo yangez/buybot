@@ -43,6 +43,8 @@ gem 'interactor-rails', '~> 2.0'
 
 gem "slack-notifier"
 
+gem 'plaid-ruby'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
